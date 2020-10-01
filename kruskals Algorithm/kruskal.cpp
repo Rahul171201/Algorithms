@@ -1,19 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define REP(i, a, b) for (int i = a; i < b; i++)
+#define REP(i, a, b) for (int i = a; i < b; i++)      //macro for traversing from a to b-1
 #define vi vector<int>
 #define vvi vector<vi>
 #define pushb push_back
 #define miN map<int, struct Node *>
 
-void inputEdges(vvi &arr, int n);
+void inputEdges(vvi &arr, int n);                       
 
-typedef struct Node
+typedef struct Node                          // structure of a Node
 {
     struct Node *next;
 } Node;
 
-void initDic(miN &dic, int V)
+void initDic(miN &dic, int V)                           //initializing the new Node
 {
     int index = 1;
     while (V--)
@@ -35,7 +35,7 @@ Node *find(miN dic, int ele) // Return parentSet of the element Node
     return p;
 }
 
-void unionOp(miN dic, int u, int v)
+void unionOp(miN dic, int u, int v)              
 {
     Node *src = dic[u];
     Node *des = dic[v];
@@ -53,12 +53,12 @@ void unionOp(miN dic, int u, int v)
 int main()
 {
     int V, E;
-    cout << "\nENTER NUMBER OF VERTICES (V)  : ";
+    cout << "\nENTER NUMBER OF VERTICES (V)  : ";                           //user inputs number of vertices
     cin >> V;
     miN dic;
     initDic(dic, V);
 
-    cout << "\nENTER NUMBER OF EDGES (E) :";
+    cout << "\nENTER NUMBER OF EDGES (E) :";                        //user inputs number of edges
     cin >> E;
     vvi mapper;
     inputEdges(mapper, E);
@@ -67,7 +67,7 @@ int main()
     int i;
     int count = 0;
     int cost = 0;
-    REP(i, 0, E)
+    REP(i, 0, E)                                        //use of predefined macro for(int i=a;i<b;i++)
     {
         if (count == V - 1)
             break;
@@ -87,7 +87,7 @@ int main()
     return 0;
 }
 
-void inputEdges(vvi &arr, int n)
+void inputEdges(vvi &arr, int n)                                 //input the edges by user
 {
     while (n--)
     {
